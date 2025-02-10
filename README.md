@@ -1,27 +1,100 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
-# WESTERN GOVERNORS UNIVERSITY 
-## D288 – BACK-END PROGRAMMING
-Welcome to Back-End Programming! This is an opportunity for students to develop object-oriented applications that can be integrated with relational databases, write code for object-oriented applications using Spring framework, and implements design patterns for object-oriented applications. 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this project, you will be building your project using IntelliJ IDEA (Ultimate Edition) in a WGU-provided lab environment. You will be working with an existing MySQL database and Angular front-end, which are supplied for you in the lab environment. You will share this project to a private external GitLab repository and backup regularly. If you wish to work on it on your local machine, you will also need to download the Angular front-end application and create your own MySQL database. Use the links on your course page to install the integrated development environments (IDE), MySQL WorkBench, and IntelliJ IDEA, and pull the project from the lab environment.  
+# Vacation Booking System
 
+## Overview
+The **Vacation Booking System** is a full-stack web application designed to facilitate vacation package bookings, user checkout, and order management. This project modernizes the backend using **Spring Boot**, replacing a legacy system while integrating with an **Angular** frontend and a **MySQL** database for data persistence.
 
-## SUPPLEMENTAL RESOURCES  
-1.	How to clone a project to IntelliJ using Git?
+## Features
+- **Vacation Package Management** – View and manage vacation offerings and excursions.
+- **User Checkout** – Secure order placement with real-time database updates.
+- **Order Tracking** – Track vacation bookings and manage order statuses.
+- **Database Persistence** – MySQL-backed data storage with JPA & Hibernate ORM.
+- **RESTful API** – Exposes endpoints for seamless integration with the front end.
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+## Technologies Used
+### **Backend:**
+- **Spring Boot** – REST API development
+- **Java** – Core application logic
+- **Spring Data JPA** – ORM for database interactions
+- **MySQL** – Relational database for structured data storage
+- **Hibernate** – Persistence framework for object-relational mapping
 
-2. How to create a branch and start Development?
+### **Frontend:**
+- **Angular** – Dynamic and responsive user interface
+- **TypeScript** – Strongly-typed JavaScript for front-end development
+- **Bootstrap** – Styling and UI components
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+### **Development & Deployment:**
+- **IntelliJ IDEA** – Development environment
+- **GitLab** – Version control and repository hosting
+- **Maven** – Dependency management and build automation
+- **Docker** (Optional) – Containerized deployment
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
+## Project Structure
+```
+ vacation-booking-system/
+ ├── src/
+ │   ├── main/java/com/example/demo/
+ │   │   ├── controllers/    # REST controllers
+ │   │   ├── entities/       # JPA entity classes
+ │   │   ├── dao/            # Repository interfaces
+ │   │   ├── services/       # Business logic layer
+ │   │   ├── config/         # Configuration files
+ │   ├── resources/
+ │   │   ├── application.properties  # Database & app settings
+ ├── pom.xml  # Maven dependencies
+ ├── README.md  # Project documentation
+```
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+## Installation & Setup
+### Prerequisites
+- Java 17+
+- Maven
+- MySQL Server
+- Node.js & Angular CLI (for front-end)
 
+### Backend Setup
+1. Clone the repository:
+   ```sh
+   git clone https://gitlab.com/your-repository-link.git
+   cd vacation-booking-system
+   ```
+2. Configure MySQL in `application.properties`:
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/vacation_db
+   spring.datasource.username=root
+   spring.datasource.password=yourpassword
+   ```
+3. Build and run the application:
+   ```sh
+   mvn clean install
+   mvn spring-boot:run
+   ```
+
+### Frontend Setup
+1. Navigate to the Angular frontend directory:
+   ```sh
+   cd frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Run the development server:
+   ```sh
+   ng serve
+   ```
+
+## API Endpoints
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/vacations` | GET | Get all vacation packages |
+| `/api/cart` | POST | Add an item to the cart |
+| `/api/orders` | POST | Place an order |
+| `/api/orders/{id}` | GET | Retrieve order details |
+
+## Future Enhancements
+- **User Authentication** – Implement JWT-based authentication.
+- **Payment Integration** – Integrate third-party payment gateways.
+- **Admin Dashboard** – Provide an interface for managing vacations and bookings.
+
+---
